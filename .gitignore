@@ -1,2 +1,6 @@
 .zig-cache/
 zig-out/
+
+# Ignore system-generated files for macOS and Windows
+.DS_Store
+Thumbs.db
