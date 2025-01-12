@@ -1,24 +1,23 @@
 const std = @import("std");
 
 pub fn main() !void {
-    // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
-    std.debug.print("All your {s} are belong to us.\n", .{"codebase"});
+    // 標準エラー出力に出力します（`std.io.getStdErr()` に基づくショートカットです）
+    std.debug.print("全ての {s} は我々のものだ。\n", .{"codebase"});
 
-    // stdout is for the actual output of your application, for example if you
-    // are implementing gzip, then only the compressed bytes should be sent to
-    // stdout, not any debugging messages.
+    // 標準出力はアプリケーションの実際の出力用です。例えば、gzip を実装している場合、
+    // 圧縮されたバイトデータだけを標準出力に送るべきであり、デバッグメッセージは出力しません。
     const stdout_file = std.io.getStdOut().writer();
     var bw = std.io.bufferedWriter(stdout_file);
     const stdout = bw.writer();
 
-    try stdout.print("Run `zig build test` to run the tests.\n", .{});
+    try stdout.print("テストを実行するには `zig build test` を実行してください。\n", .{});
 
-    try bw.flush(); // don't forget to flush!
+    try bw.flush(); // 忘れずに flush しましょう！
 }
 
-test "simple test" {
+test "簡単なテスト" {
     var list = std.ArrayList(i32).init(std.testing.allocator);
-    defer list.deinit(); // try commenting this out and see if zig detects the memory leak!
+    defer list.deinit(); // この行をコメントアウトして、Zig がメモリリークを検出するか確認してみてください！
     try list.append(42);
     try std.testing.expectEqual(@as(i32, 42), list.pop());
 }
