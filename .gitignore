@@ -1,6 +1,19 @@
 .zig-cache/
 zig-out/
 
-# Ignore system-generated files for macOS and Windows
+# env file
+.env
+
+# OS metadata
 .DS_Store
 Thumbs.db
+
+# Claude
+.claude/settings.local.json
+.mcp.json
+
+# Codex
+.codex
+
+# OpenCode
+opencode.json
