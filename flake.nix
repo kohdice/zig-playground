@@ -1,5 +1,5 @@
 {
-  description = "zig-playground";
+  description = "Zig Playground";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
