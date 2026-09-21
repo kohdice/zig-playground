@@ -1,5 +1,5 @@
 {
-  description = "zig-playground";
+  description = "Zig Playground";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -36,7 +36,7 @@
         system:
         let
           pkgs = nixpkgsFor.${system};
-          zig = pkgs.zigpkgs."0.15.2";
+          zig = pkgs.zigpkgs."0.16.0";
         in
         {
           default = pkgs.mkShell {
